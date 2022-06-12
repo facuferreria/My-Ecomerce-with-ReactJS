@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 function Cart() {
-  const {cart, removeFromCart} = useContext(newContext)
+  const {cart, removeFromCart, calculateTotalPrice, clearCart} = useContext(newContext)
   console.log(cart);
   return (
     <div>
@@ -29,7 +29,11 @@ function Cart() {
           </div>)
         }
         <div className="price-container">
-          <p className="total-price">${cart.reduce((prev, product) => prev.item.price + product.item.price , 0)}</p>
+          <p className="total-price">${calculateTotalPrice()}</p>
+        </div>
+        <div className="price-container">
+          <button className="price-btn">FINALIZAR COMPRA</button>
+          <button className="price-btn" onClick = {() => clearCart() }>CANCELAR COMPRA</button>
         </div>
     </div>
   )

@@ -10,7 +10,7 @@ function CartWidget() {
     <div>
         <div className="miCart">
             <FontAwesomeIcon icon={ faCartShopping } className="miCart-icon" />
-            <p className="miCart-text">Mi carrito</p>
+            <p className="miCart-text">{cart.length === 0 ? "" : cart.reduce((prev, product) => prev + product.quantity , 0)}</p>
         </div>
     </div>
   )
