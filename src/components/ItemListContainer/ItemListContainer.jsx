@@ -1,9 +1,12 @@
 import React from 'react'
+import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.scss'
 
 function ItemListContainer({ greeting }) {
   return (
-    <div>{ greeting }</div>
+    <div>
+      <ItemList />
+    </div>
   )
 }
 
