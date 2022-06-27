@@ -1,0 +1,13 @@
+.miCart{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px;
+    align-items: center;
+
+    &-text{
+        padding: 0 5px;
+    }
+   
+
+}
