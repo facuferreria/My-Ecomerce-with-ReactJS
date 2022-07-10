@@ -11,24 +11,19 @@
 
     &-title{
         font-weight: bold;
+        color: #212121;
+        text-decoration: none;
     }
 
-    &-option{
+    &-option, &-widget {
+        color: #767676;
         padding: 0 10px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all .5s;
 
-        &::after{
-            content: "";
-            height: 2px;
-            background-color: #212121;
-            display: block;
-            width: 0;
-            transition: width .5s;
-        }
-        
-        &:hover::after{
-            width: 100%;
-            transition: width .5s;
-        }
-        
+        &:hover{
+            color: #212121;
+        } 
     }
 }
