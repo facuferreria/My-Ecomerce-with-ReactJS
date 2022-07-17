@@ -1,0 +1,30 @@
+.counter{
+    display: flex;
+    width: 100px;
+    height: 60px;
+    padding: 5px 10px;
+    margin: 0 15px;
+    border: 1px solid #767676;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 18px;
+    transition: all .3s;
+
+    &-button{
+        font-size: 25px;
+        padding: 10px;
+        cursor: pointer;
+        color: #767676;
+
+        &:hover{
+            color: #212121;
+        }
+    
+    }
+
+    &:hover{
+        border: 1px solid #212121;
+    }
+
+}
+

@@ -1,5 +1,6 @@
 .itemContainer{
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
     max-width: 1200px;
     padding: 50px 20px;
 }

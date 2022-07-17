@@ -15,7 +15,7 @@ function ItemDetailContainer() {
       .catch(err => console.log(err))
       .finally(() => setLoading(false))
     }, [detailId])
-    console.log(item)
+    
   return (
     <div>{loading ? <h2>Loading...</h2> : <ItemDetail key= {item.id} product = {item}/>}</div>
   )

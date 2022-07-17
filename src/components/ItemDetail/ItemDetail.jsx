@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom';
+import CartContext  from '../Context/CartContext';
+import ItemCount from '../ItemCount/ItemCount';
 import '../ItemDetail/ItemDetail.scss'
 
 function ItemDetail({ product }) {
 
-    const changeStyle = (e) => {
-        e.target.classList.toggle('text-talle-selected');
-    }
+  //const [cart, addToCart] = useContext(CartContext)
+  const [cantidad, setCantidad] = useState()
+
+ 
+
+  const onAdd = (counter) => {
+    setCantidad(counter)
+    const producto = { item: product, quantity: counter }
+    //addToCart(producto)
+    //console.log(cart);
+  }
+
+  const changeStyle = (e) => {
+    e.target.classList.toggle('text-talle-selected');
+  }
 
   return (
     <div className="detail-card">
@@ -20,12 +35,13 @@ function ItemDetail({ product }) {
           <div className="detail-talles">
             {product.sizes.map(size => <p className="text-talle" onClick={changeStyle}>{size}</p>)}
           </div>
-          <div className="add-cart">
-            <button className="add-cart-btn">
-                <h2 className="add-cart-text">+  Añadir al carrito</h2>
-            </button>
-          </div>
-          
+          {cantidad? <Link to='/cart'>
+                      <button className="add-cart-btn">
+                        <h2 className="add-cart-text">Finalizar compra</h2>
+                      </button>
+                     </Link> 
+                   : <ItemCount stock = {product.stock} initial = {0} onAdd = {onAdd}/>
+          }
         </div>
     </div>
   )
