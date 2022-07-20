@@ -9,8 +9,8 @@ function Item({product}) {
       <div className="card">
         <img src={product.pictureImg} className="card-img-top" alt="..." />
         <div className="card-body">
-          <h4 className="card-title">{product.description}</h4>
-          <p className="card-text">{product.name}</p>
+          <h4 className="card-title">{product.name}</h4>
+          <p className="card-text">{product.description}</p>
           <button className="btn-primary">${product.price}</button>
         </div>
       </div>

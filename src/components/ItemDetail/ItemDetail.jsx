@@ -1,21 +1,21 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
-import CartContext  from '../Context/CartContext';
+import { newContext }  from '../Context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
 import '../ItemDetail/ItemDetail.scss'
 
 function ItemDetail({ product }) {
 
-  //const [cart, addToCart] = useContext(CartContext)
+  const [cart, addToCart] = useContext(newContext)
   const [cantidad, setCantidad] = useState()
 
- 
+  console.log(cart);
 
   const onAdd = (counter) => {
     setCantidad(counter)
     const producto = { item: product, quantity: counter }
-    //addToCart(producto)
-    //console.log(cart);
+    addToCart(producto)
+    console.log(cart);
   }
 
   const changeStyle = (e) => {
@@ -25,11 +25,11 @@ function ItemDetail({ product }) {
   return (
     <div className="detail-card">
         <div className="product-img">
-            <img src={product.bigImg} className="img" alt="..." />
+            <img src={product.pictureImg} className="img" alt="..." />
         </div>
         <div className="product-info">
           <h1 className="detail-title">{product.name}</h1>
-          <p className="detail-description">{product.description}</p>
+          <p className="detail-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam qui nobis iste nisi labore odit ab obcaecati ut, magnam cumque? Suscipit perspiciatis ad impedit ullam quos rem, velit magni consequatur!</p>
           <h2 className="detail-price">${product.price}</h2>
           <p className="detail-text">TALLES</p>
           <div className="detail-talles">
