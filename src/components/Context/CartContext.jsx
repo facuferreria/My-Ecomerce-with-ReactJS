@@ -9,9 +9,9 @@ export function CartContext({children}) {
     const addToCart= (item) =>{
 
         if (inCart(item.item.id)) {
-            let itemPosition = cart.find(prod => prod.id === item.id)
-            itemPosition.cantidad += item.cantidad;
-            setCart(itemPosition);
+            let itemInCart = cart.find(prod => prod.item.id === item.item.id)
+            itemInCart.quantity += item.quantity;
+            setCart(cart);
         } else {
             setCart([... cart, item])
         }
@@ -27,14 +27,12 @@ export function CartContext({children}) {
     }
 
     const inCart= (id) =>{
-        let productInCart = cart.find(producto => producto.id === id)
-        console.log(productInCart);
-        console.log(productInCart  ? true : false);
+        let productInCart = cart.find(producto => producto.item.id === id)
         return productInCart ? true : false
     }
 
   return (
-    <newContext.Provider value={[cart, addToCart, removeFromCart, clearCart, inCart]}>
+    <newContext.Provider value={{cart, addToCart, removeFromCart, clearCart, inCart}}>
         {children}
     </newContext.Provider>
   )

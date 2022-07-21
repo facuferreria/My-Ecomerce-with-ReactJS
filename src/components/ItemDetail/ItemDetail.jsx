@@ -6,16 +6,13 @@ import '../ItemDetail/ItemDetail.scss'
 
 function ItemDetail({ product }) {
 
-  const [cart, addToCart] = useContext(newContext)
+  const {cart, addToCart} = useContext(newContext)
   const [cantidad, setCantidad] = useState()
-
-  console.log(cart);
 
   const onAdd = (counter) => {
     setCantidad(counter)
     const producto = { item: product, quantity: counter }
     addToCart(producto)
-    console.log(cart);
   }
 
   const changeStyle = (e) => {
@@ -33,7 +30,7 @@ function ItemDetail({ product }) {
           <h2 className="detail-price">${product.price}</h2>
           <p className="detail-text">TALLES</p>
           <div className="detail-talles">
-            {product.sizes.map(size => <p className="text-talle" onClick={changeStyle}>{size}</p>)}
+            {product.sizes.map((size, index) => <p key= {index} className="text-talle" onClick={changeStyle}>{size}</p>)}
           </div>
           {cantidad? <Link to='/cart'>
                       <button className="add-cart-btn">
