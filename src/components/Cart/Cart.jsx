@@ -1,22 +1,36 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import { newContext } from '../Context/CartContext'
-import Item from '../Item/Item'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 function Cart() {
-  const {cart} = useContext(newContext)
+  const {cart, removeFromCart} = useContext(newContext)
   console.log(cart);
   return (
     <div>
-       {cart.map(product => 
+       { 
+       cart.length == 0 
+        ? 
+        <Link to="/"><button>Para agregar productos a su carrito vaya aqui...</button></Link>
+        :
+        cart.map(product => 
           <div className="card" key= {product.item.id}>
             <img src={product.item.pictureImg} className="card-img-top" alt="..." />
             <div className="card-body">
               <h4 className="card-title">{product.item.name}</h4>
               <p className="card-text">{product.item.description}</p>
-              <button className="btn-primary">Cantidad: {product.quantity}</button>
+              <p className="card-text">CANTIDAD: {product.quantity}</p>
+              <button className="card-btn" onClick = {() => removeFromCart(product) }>
+                <FontAwesomeIcon icon={faTrashCan} />
+                <p>QUITAR UNIDAD</p>
+              </button>
             </div>
           </div>)
         }
+        <div className="price-container">
+          <p className="total-price">${cart.reduce((prev, product) => prev.item.price + product.item.price , 0)}</p>
+        </div>
     </div>
   )
 }

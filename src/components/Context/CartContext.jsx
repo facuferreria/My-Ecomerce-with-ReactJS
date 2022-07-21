@@ -19,7 +19,9 @@ export function CartContext({children}) {
     }
 
     const removeFromCart=(item) => {
-        setCart(cart.filter(i => i.id !== item.id))
+        item.quantity > 0 ? item.quantity-- : item.quantity = 0;
+        console.log(item.quantity);
+        setCart(cart);
     }
 
     const clearCart= () =>{
