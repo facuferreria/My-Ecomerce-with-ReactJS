@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.scss'
@@ -32,6 +33,14 @@ function ItemListContainer({ greeting }) {
       {loading ? <h2>Loading...</h2> : <ItemList prods = {prodDeportivos}/>}
     </div>
   )
+=======
+import React from 'react'
+
+function ItemListContainer({greeting}) {
+    return (
+      <div>{greeting}</div>
+    )
+>>>>>>> 9b05f55 (desafio menu e-commerce)
 }
 
 export default ItemListContainer

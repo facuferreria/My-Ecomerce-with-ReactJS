@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import  './App.scss';
 import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
@@ -29,3 +30,20 @@ function App() {
 }
 
 export default App
+=======
+import logo from './logo.svg';
+import './App.scss';
+import NavBar from './components/Navbar/NavBar.jsx'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
+
+function App() {
+  return (
+    <div className="App">
+      <NavBar />
+      <ItemListContainer greeting = "Hola amiguito por ahora esta pagina esta en construccion..."/>
+    </div>
+  );
+}
+
+export default App;
+>>>>>>> 9b05f55 (desafio menu e-commerce)
