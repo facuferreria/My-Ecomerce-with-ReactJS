@@ -6,7 +6,7 @@ import '../ItemDetail/ItemDetail.scss'
 
 function ItemDetail({ product }) {
 
-  const {cart, addToCart} = useContext(newContext)
+  const { addToCart } = useContext(newContext)
   const [cantidad, setCantidad] = useState()
 
   const onAdd = (counter) => {

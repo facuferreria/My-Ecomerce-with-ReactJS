@@ -5,12 +5,12 @@ import "./CartWidget.scss";
 import { newContext } from '../Context/CartContext';
 
 function CartWidget() {
-  const { cart } = useContext(newContext)
+  const { cart, calculateItemsQuantity } = useContext(newContext)
   return (
     <div>
         <div className="miCart">
             <FontAwesomeIcon icon={ faCartShopping } className="miCart-icon" />
-            <p className="miCart-text">Mi carrito</p>
+            <p className="miCart-text">{calculateItemsQuantity() !== 0 && calculateItemsQuantity() }</p>
         </div>
     </div>
   )

@@ -5,8 +5,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 function Cart() {
-  const {cart, removeFromCart} = useContext(newContext)
-  console.log(cart);
+  const {cart, removeUnityFromCart, removeFromCart, calculateTotalPrice, clearCart} = useContext(newContext)
+  
+  const generateOrder = () => {
+    const order = {}
+    order.buyer = {name: "Facundo", email: "ferr@gmail.com", number: 112334}
+    order.items = cart.map(product => {
+      const id = product.item.id
+      const price = product.item.price
+      const name = product.item.name
+      const quantity = product.quantity
+
+      return {id, name, price, quantity}
+    })
+    order.total = calculateTotalPrice()
+    console.log(order);
+  }
+
   return (
     <div>
        { 
@@ -21,18 +36,24 @@ function Cart() {
               <h4 className="card-title">{product.item.name}</h4>
               <p className="card-text">{product.item.description}</p>
               <p className="card-text">CANTIDAD: {product.quantity}</p>
-              <button className="card-btn" onClick = {() => removeFromCart(product) }>
+              <button className="card-btn" onClick = {() => removeUnityFromCart(product) }>
                 <FontAwesomeIcon icon={faTrashCan} />
                 <p>QUITAR UNIDAD</p>
               </button>
+              <button onClick = {() => removeFromCart(product.item.id) }>X</button>
             </div>
           </div>)
         }
         <div className="price-container">
-          <p className="total-price">${cart.reduce((prev, product) => prev.item.price + product.item.price , 0)}</p>
+          <p className="total-price">${calculateTotalPrice()}</p>
+        </div>
+        <div className="price-container">
+          <button className="price-btn" onClick = {() => generateOrder() }>FINALIZAR COMPRA</button>
+          <button className="price-btn" onClick = {() => clearCart() }>CANCELAR COMPRA</button>
         </div>
     </div>
   )
 }
+
 
 export default Cart

@@ -6,16 +6,16 @@ import { useParams } from 'react-router-dom';
 
 
 function ItemListContainer({ greeting }) {
-  const { categoriaId } = useParams();
+  const { categoryId } = useParams();
   const [prodDeportivos, setProdDeportivos] = useState([])
   const [loading, setLoading] = useState(true)
   
 
   useEffect(() => {
 
-    if (categoriaId) {
+    if (categoryId) {
       promesaDeportes
-      .then(res => setProdDeportivos(res.filter(item => item.categoria === categoriaId)))
+      .then(res => setProdDeportivos(res.filter(item => item.categoria === categoryId)))
       .catch(err => console.log(err))
       .finally(() => setLoading(false))
     } else {
@@ -25,7 +25,7 @@ function ItemListContainer({ greeting }) {
       .finally(() => setLoading(false))
     }
     
-  }, [categoriaId])
+  }, [categoryId])
 
   return (
     <div>

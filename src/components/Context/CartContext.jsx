@@ -18,10 +18,19 @@ export function CartContext({children}) {
         
     }
 
-    const removeFromCart=(item) => {
-        item.quantity > 0 ? item.quantity-- : item.quantity = 0;
-        console.log(item.quantity);
-        setCart(cart);
+    const removeFromCart = (id) => {
+        setCart(cart.filter(prod => prod.item.id !== id));
+    }
+
+
+    const removeUnityFromCart=(item) => {
+        if (item.quantity > 1) {
+            item.quantity--;
+        } else {
+            return removeFromCart(item.item.id);
+        }
+
+        setCart([...cart]);
     }
 
     const clearCart= () =>{
@@ -33,8 +42,16 @@ export function CartContext({children}) {
         return productInCart ? true : false
     }
 
+    const calculateTotalPrice = () => {
+        return cart.reduce((prev, product) => prev + product.item.price * product.quantity , 0)
+    }
+
+    const calculateItemsQuantity = () => {
+        return cart.reduce((prev, item) => prev += item.quantity, 0)
+    }
+
   return (
-    <newContext.Provider value={{cart, addToCart, removeFromCart, clearCart, inCart}}>
+    <newContext.Provider value={{cart, addToCart, removeFromCart, removeUnityFromCart, clearCart, inCart, calculateTotalPrice, calculateItemsQuantity}}>
         {children}
     </newContext.Provider>
   )
