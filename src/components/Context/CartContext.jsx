@@ -43,7 +43,7 @@ export function CartContext({children}) {
     }
 
     const calculateTotalPrice = () => {
-        return cart.reduce((prev, product) => prev + product.item.price * product.quantity , 0)
+        return cart.reduce((prev, product) => prev + (product.item.price * product.quantity) , 0)
     }
 
     const calculateItemsQuantity = () => {

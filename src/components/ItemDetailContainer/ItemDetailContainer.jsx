@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import "../ItemDetailContainer/ItemDetailContainer.scss";
 import { promesaDeportes } from '../../helpers/products.js'
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 function ItemDetailContainer() {
     const {detailId} = useParams();
@@ -10,8 +11,10 @@ function ItemDetailContainer() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-      promesaDeportes
-      .then(res => setItem(res.find(item => item.id === detailId)))
+      const db = getFirestore() 
+      const queryProduct = doc(db, 'products', detailId )
+      getDoc(queryProduct)
+      .then(res => setItem({ id: res.id, ...res.data() }))
       .catch(err => console.log(err))
       .finally(() => setLoading(false))
     }, [detailId])

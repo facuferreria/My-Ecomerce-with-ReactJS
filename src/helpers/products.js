@@ -7,7 +7,7 @@ let productosDeportivos = [
         pictureImg: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/z/a/zapatillas-running-adidas-coreracer-negra-100010fx3581001-1.jpg',
         sizes: [39, 40, 41, 42, 43, 44, 45],
         stock: 5,
-        categoria: "deportivo"
+        category: "deportivo"
     },
     {
         id: '2', 
@@ -17,7 +17,7 @@ let productosDeportivos = [
         pictureImg: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/1/0/100010fw5705001-1.jpg',
         sizes: [39, 40, 41, 42, 43, 44, 45],
         stock: 7,
-        categoria: "deportivo"
+        category: "deportivo"
     },
     {
         id: '3', 
@@ -27,7 +27,7 @@ let productosDeportivos = [
         pictureImg: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/z/a/zapatillas-topper-x-forcer-negra-800010021872001-1.jpg',
         sizes: [39, 40, 41, 42, 43, 44, 45],
         stock: 14,
-        categoria: "deportivo"
+        category: "deportivo"
     },
     {
         id: '4', 
@@ -37,7 +37,7 @@ let productosDeportivos = [
         pictureImg: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/b/o/botines-de-futbol-topper-san-ciro-5-tf-blanco-21722836-800010026399001-1-1.jpg',
         sizes: [39, 40, 41, 42, 43, 44, 45],
         stock: 10,
-        categoria: "deportivo"
+        category: "deportivo"
     },
 
     {
@@ -48,7 +48,7 @@ let productosDeportivos = [
         pictureImg: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/2/0/200010157197001-1.jpg',
         sizes: [39, 40, 41, 42, 43, 44, 45],
         stock: 10,
-        categoria: "salida"
+        category: "salida"
     },
     {
         id: '6', 
@@ -58,7 +58,7 @@ let productosDeportivos = [
         pictureImg: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/b/o/botas-john-foos-path-blanca-305011062109001-1.jpg',
         sizes: [39, 40, 41, 42, 43, 44, 45],
         stock: 10,
-        categoria: "salida"
+        category: "salida"
     },
     {
         id: '7', 
@@ -68,7 +68,7 @@ let productosDeportivos = [
         pictureImg: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/3/0/305011761324001-1_1.jpg',
         sizes: [39, 40, 41, 42, 43, 44, 45],
         stock: 10,
-        categoria: "salida"
+        category: "salida"
     },
     {
         id: '8', 
@@ -78,7 +78,7 @@ let productosDeportivos = [
         pictureImg: 'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/2/0/200010156994001-1.jpg',
         sizes: [39, 40, 41, 42, 43, 44, 45],
         stock: 10,
-        categoria: "salida"
+        category: "salida"
     },
 ];
 

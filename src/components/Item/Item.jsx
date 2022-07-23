@@ -5,7 +5,7 @@ import '../Item/Item.scss'
 
 function Item({product}) {
   return (
-    <Link to={`/detail/${product.id}`}>
+    <Link className = "link-class" to={`/detail/${product.id}`}>
       <div className="card">
         <img src={product.pictureImg} className="card-img-top" alt="..." />
         <div className="card-body">

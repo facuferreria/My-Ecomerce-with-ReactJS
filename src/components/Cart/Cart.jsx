@@ -45,11 +45,11 @@ function Cart() {
           </div>)
         }
         <div className="price-container">
-          <p className="total-price">${calculateTotalPrice()}</p>
+          {cart.length !== 0 && <p className="total-price">${calculateTotalPrice()}</p>}
         </div>
         <div className="price-container">
-          <button className="price-btn" onClick = {() => generateOrder() }>FINALIZAR COMPRA</button>
-          <button className="price-btn" onClick = {() => clearCart() }>CANCELAR COMPRA</button>
+          {cart.length !== 0 && <button className="price-btn" onClick = {() => generateOrder() }>FINALIZAR COMPRA</button>}
+          {cart.length !== 0 && <button className="price-btn" onClick = {() => clearCart() }>CANCELAR COMPRA</button>}
         </div>
     </div>
   )
