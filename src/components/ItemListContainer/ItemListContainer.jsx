@@ -4,9 +4,10 @@ import './ItemListContainer.scss'
 import { promesaDeportes } from '../../helpers/products.js'
 import { useParams } from 'react-router-dom';
 import { collection, doc, getDoc, getDocs, getFirestore, limit, orderBy, query, where } from 'firebase/firestore'
+import Spinner from '../Spinner/Spinner';
 
 
-function ItemListContainer({ greeting }) {
+function ItemListContainer() {
   const { categoryId } = useParams();
   const [ products , setProducts] = useState([])
   const [loading, setLoading] = useState(true)
@@ -32,7 +33,7 @@ function ItemListContainer({ greeting }) {
   
   return (
     <div>
-      {loading ? <h2>Loading...</h2> : <ItemList prods = {products}/>}
+      {loading ? <Spinner /> : <ItemList prods = {products}/>}
     </div>
   )
 }

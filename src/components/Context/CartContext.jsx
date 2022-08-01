@@ -11,7 +11,7 @@ export function CartContext({children}) {
         if (inCart(item.item.id)) {
             let itemInCart = cart.find(prod => prod.item.id === item.item.id)
             itemInCart.quantity += item.quantity;
-            setCart(cart);
+            setCart([...cart]);
         } else {
             setCart([... cart, item])
         }

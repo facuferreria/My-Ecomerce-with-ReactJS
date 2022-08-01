@@ -5,7 +5,7 @@ import "./CartWidget.scss";
 import { newContext } from '../Context/CartContext';
 
 function CartWidget() {
-  const { cart, calculateItemsQuantity } = useContext(newContext)
+  const { calculateItemsQuantity } = useContext(newContext)
   return (
     <div>
         <div className="miCart">

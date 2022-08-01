@@ -1,15 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { newContext } from '../Context/CartContext'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import Form from '../Form/Form';
+import ItemCart from '../ItemCart/ItemCart';
+import { addDoc, collection, getFirestore } from 'firebase/firestore'
+import Swal from 'sweetalert2';
+
 
 function Cart() {
   const {cart, removeUnityFromCart, removeFromCart, calculateTotalPrice, clearCart} = useContext(newContext)
+  const [id, setId] = useState("")
   
-  const generateOrder = () => {
+  const generateOrder = (values) => {
     const order = {}
-    order.buyer = {name: "Facundo", email: "ferr@gmail.com", number: 112334}
+    order.buyer = {name: values.name, email: values.email, number: parseInt(values.number)}
     order.items = cart.map(product => {
       const id = product.item.id
       const price = product.item.price
@@ -19,38 +23,51 @@ function Cart() {
       return {id, name, price, quantity}
     })
     order.total = calculateTotalPrice()
-    console.log(order);
+
+
+    const db = getFirestore()
+    const queryInsertOrders = collection(db, 'orders')
+
+    Swal.fire({
+      title: 'Confirmar pedido...',
+      showDenyButton: true,
+      confirmButtonText: 'Aceptar',
+      denyButtonText: `Cancelar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        addDoc(queryInsertOrders, order)
+        .then(res => setId(res.id))
+        .catch(err => console.error(err))
+        .finally(() => clearCart())
+        Swal.fire('Compra Existosa!', `Este es el id de tu compra: ${id}`, 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Ups no se completo la compra', 'Por favor vuelve a intentarlo mas tarde', 'info')
+      }
+    }) 
   }
 
   return (
     <div>
        { 
-       cart.length == 0 
-        ? 
-        <Link to="/"><button>Para agregar productos a su carrito vaya aqui...</button></Link>
-        :
-        cart.map(product => 
-          <div className="card" key= {product.item.id}>
-            <img src={product.item.pictureImg} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h4 className="card-title">{product.item.name}</h4>
-              <p className="card-text">{product.item.description}</p>
-              <p className="card-text">CANTIDAD: {product.quantity}</p>
-              <button className="card-btn" onClick = {() => removeUnityFromCart(product) }>
-                <FontAwesomeIcon icon={faTrashCan} />
-                <p>QUITAR UNIDAD</p>
-              </button>
-              <button onClick = {() => removeFromCart(product.item.id) }>X</button>
-            </div>
-          </div>)
+        cart.length == 0 
+        ? <Link to="/"><button>Para agregar productos a su carrito vaya aqui...</button></Link>
+        : cart.map(product => 
+            <ItemCart 
+              removeUnityFromCart= {removeUnityFromCart} 
+              removeFromCart= {removeFromCart} 
+              product = {product} 
+              key = {product.item.id}
+            />
+          )
+       }
+      <div className="form-container">
+        {cart.length !== 0 && <Form  
+                                calculateTotalPrice = {calculateTotalPrice} 
+                                generateOrder = {generateOrder} 
+                                clearCart = {clearCart} 
+                              /> 
         }
-        <div className="price-container">
-          {cart.length !== 0 && <p className="total-price">${calculateTotalPrice()}</p>}
-        </div>
-        <div className="price-container">
-          {cart.length !== 0 && <button className="price-btn" onClick = {() => generateOrder() }>FINALIZAR COMPRA</button>}
-          {cart.length !== 0 && <button className="price-btn" onClick = {() => clearCart() }>CANCELAR COMPRA</button>}
-        </div>
+      </div>
     </div>
   )
 }

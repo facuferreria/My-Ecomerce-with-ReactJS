@@ -4,6 +4,7 @@ import "../ItemDetailContainer/ItemDetailContainer.scss";
 import { promesaDeportes } from '../../helpers/products.js'
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { doc, getDoc, getFirestore } from "firebase/firestore";
+import Spinner from '../Spinner/Spinner';
 
 function ItemDetailContainer() {
     const {detailId} = useParams();
@@ -20,7 +21,7 @@ function ItemDetailContainer() {
     }, [detailId])
     
   return (
-    <div>{loading ? <h2>Loading...</h2> : <ItemDetail key= {item.id} product = {item}/>}</div>
+    <div>{loading ? <Spinner /> : <ItemDetail key= {item.id} product = {item}/>}</div>
   )
 }
 
