@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import getFireBase from './firebase/config'
 
+//obtengo firebase de forma global
 getFireBase()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

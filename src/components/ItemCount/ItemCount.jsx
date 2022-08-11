@@ -2,15 +2,20 @@ import React, {useState} from 'react'
 import '../ItemCount/ItemCount.scss'
 
 function ItemCount({stock, initial, onAdd}) {
+    //contador de unidades de cada producto
     const [count, setCount] = useState(initial);
 
+    //restar unidad
     const restarCounter = () => {
+        //restar mientra sea mayor a 0
         if (count > 0) {
             setCount(count - 1);
         }
     }
 
+    //sumar unidad
     const sumarCounter = () => {
+        //sumar mientras no supere al stock disponible
         if (count < stock) {
             setCount(count + 1);
         }

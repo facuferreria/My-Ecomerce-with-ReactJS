@@ -1,5 +1,4 @@
 import React from 'react'
-import '../EmptyCart/EmptyCart.scss'
 import { Link } from 'react-router-dom'
 
 function EmptyCart() {

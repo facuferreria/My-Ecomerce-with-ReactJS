@@ -4,6 +4,7 @@ import '../Form/Form.scss'
 
 
 function Form({ generateOrder, clearCart, calculateTotalPrice }) {
+    //definiendo el state para los valores de los inputs
     const [values, setValues] = useState({
         name:"",
         surname:"",
@@ -11,6 +12,7 @@ function Form({ generateOrder, clearCart, calculateTotalPrice }) {
         number:"",
     })
 
+    //obteniendo valores de los inputs del form
     const handleChange = (e) => {
         const inputType = e.target.name
         const value = e.target.value
@@ -20,6 +22,7 @@ function Form({ generateOrder, clearCart, calculateTotalPrice }) {
         })
     }
 
+    //prevenir comportamiento default del form
     const handleSubmit = (e) => {
         e.preventDefault()
     }

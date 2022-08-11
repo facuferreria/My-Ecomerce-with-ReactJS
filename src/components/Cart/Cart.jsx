@@ -8,8 +8,10 @@ import EmptyCart from '../EmptyCart/EmptyCart';
 
 
 function Cart() {
+  //llamando funcionalidades del context
   const {cart, removeUnityFromCart, removeFromCart, calculateTotalPrice, clearCart, addUnityToCart} = useContext(newContext)
   
+  //generando la orden de compra con los datos del form
   const generateOrder = (values) => {
     const order = {}
     order.buyer = {name: values.name, email: values.email, number: parseInt(values.number)}
@@ -23,10 +25,11 @@ function Cart() {
     })
     order.total = calculateTotalPrice()
 
-
+    //inicializando firestore
     const db = getFirestore()
     const queryInsertOrders = collection(db, 'orders')
 
+    //confirmando pedido
     Swal.fire({
       title: 'Confirmar pedido...',
       showDenyButton: true,
@@ -35,6 +38,7 @@ function Cart() {
     })
     .then((result) => {
       if (result.isConfirmed) {
+        //agregando orden a firebase y retornando id en una alerta
         addDoc(queryInsertOrders, order)
         .then(res => Swal.fire('Compra Existosa!', `Este es el id de tu compra: ${res.id}`, 'success'))
         .catch(err => console.error(err))

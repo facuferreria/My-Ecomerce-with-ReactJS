@@ -5,16 +5,20 @@ import ItemCount from '../ItemCount/ItemCount';
 import '../ItemDetail/ItemDetail.scss'
 
 function ItemDetail({ product }) {
-
+  //defino el estado de contador y obtengo funciones del context
   const { addToCart } = useContext(newContext)
-  const [cantidad, setCantidad] = useState()
+  const [ cantidad, setCantidad ] = useState()
 
+  //agrego el producto al carrito con la cantidad del contador
   const onAdd = (counter) => {
     setCantidad(counter)
+
+    //agrego al carrito el producto y cantidad deseada
     const producto = { item: product, quantity: counter }
     addToCart(producto)
   }
 
+  //estilos para seleccion de talles
   const changeStyle = (e) => {
     e.target.classList.toggle('text-talle-selected');
   }
