@@ -4,13 +4,13 @@ import '../ItemCount/ItemCount.scss'
 function ItemCount({stock, initial, onAdd}) {
     const [count, setCount] = useState(initial);
 
-    function restarCounter() {
+    const restarCounter = () => {
         if (count > 0) {
             setCount(count - 1);
         }
     }
 
-    function sumarCounter() {
+    const sumarCounter = () => {
         if (count < stock) {
             setCount(count + 1);
         }

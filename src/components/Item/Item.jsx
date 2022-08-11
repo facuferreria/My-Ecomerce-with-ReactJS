@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../Item/Item.scss'
 
 
-function Item({product}) {
+function Item({ product }) {
   return (
     <Link className = "link-class" to={`/detail/${product.id}`}>
       <div className="card">

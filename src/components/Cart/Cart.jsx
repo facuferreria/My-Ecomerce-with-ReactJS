@@ -1,15 +1,14 @@
-import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react'
 import { newContext } from '../Context/CartContext'
 import Form from '../Form/Form';
 import ItemCart from '../ItemCart/ItemCart';
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import Swal from 'sweetalert2';
+import EmptyCart from '../EmptyCart/EmptyCart';
 
 
 function Cart() {
-  const {cart, removeUnityFromCart, removeFromCart, calculateTotalPrice, clearCart} = useContext(newContext)
-  const [id, setId] = useState("")
+  const {cart, removeUnityFromCart, removeFromCart, calculateTotalPrice, clearCart, addUnityToCart} = useContext(newContext)
   
   const generateOrder = (values) => {
     const order = {}
@@ -33,13 +32,13 @@ function Cart() {
       showDenyButton: true,
       confirmButtonText: 'Aceptar',
       denyButtonText: `Cancelar`,
-    }).then((result) => {
+    })
+    .then((result) => {
       if (result.isConfirmed) {
         addDoc(queryInsertOrders, order)
-        .then(res => setId(res.id))
+        .then(res => Swal.fire('Compra Existosa!', `Este es el id de tu compra: ${res.id}`, 'success'))
         .catch(err => console.error(err))
         .finally(() => clearCart())
-        Swal.fire('Compra Existosa!', `Este es el id de tu compra: ${id}`, 'success')
       } else if (result.isDenied) {
         Swal.fire('Ups no se completo la compra', 'Por favor vuelve a intentarlo mas tarde', 'info')
       }
@@ -48,24 +47,28 @@ function Cart() {
 
   return (
     <div>
-       { 
-        cart.length == 0 
-        ? <Link to="/"><button>Para agregar productos a su carrito vaya aqui...</button></Link>
-        : cart.map(product => 
-            <ItemCart 
-              removeUnityFromCart= {removeUnityFromCart} 
-              removeFromCart= {removeFromCart} 
-              product = {product} 
-              key = {product.item.id}
-            />
-          )
-       }
+      <div className="items-container">
+        { 
+          cart.length === 0 
+          ? <EmptyCart />
+          : cart.map(product => 
+              <ItemCart 
+                removeUnityFromCart= {removeUnityFromCart} 
+                removeFromCart= {removeFromCart} 
+                product = {product} 
+                addUnityToCart = {addUnityToCart}
+                key = {product.item.id}
+              />
+            )
+        }
+      </div>
       <div className="form-container">
-        {cart.length !== 0 && <Form  
-                                calculateTotalPrice = {calculateTotalPrice} 
-                                generateOrder = {generateOrder} 
-                                clearCart = {clearCart} 
-                              /> 
+        {
+          cart.length !== 0 && <Form  
+                                  calculateTotalPrice = {calculateTotalPrice} 
+                                  generateOrder = {generateOrder} 
+                                  clearCart = {clearCart} 
+                                /> 
         }
       </div>
     </div>

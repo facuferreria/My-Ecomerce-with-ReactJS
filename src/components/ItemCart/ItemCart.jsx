@@ -1,24 +1,23 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import '../ItemCart/ItemCart.scss'
 
-function ItemCart({ product, removeFromCart, removeUnityFromCart }) {
+function ItemCart({ product, removeFromCart, removeUnityFromCart, addUnityToCart }) {
   return (
-    <div>
-        <div className="card">
-            <img src={product.item.pictureImg} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h4 className="card-title">{product.item.name}</h4>
-              <p className="card-text">{product.item.description}</p>
-              <p className="card-text">CANTIDAD: {product.quantity}</p>
-              <button className="card-btn" onClick = {() => removeUnityFromCart(product) }>
-                <FontAwesomeIcon icon={faTrashCan} />
-                <p>QUITAR UNIDAD</p>
-              </button>
-              <button onClick = {() => removeFromCart(product.item.id) }>X</button>
-            </div>
-          </div>
+   
+  <div className="cart-item">
+    <img src={product.item.pictureImg} className="cart-img" alt="..." />
+    <h4 className="cart-title">{product.item.name}</h4>
+    <div className="counter-container">
+      <span className="counter-text">QTY:</span>
+      <div className="cart-counter">
+        <span className="cart-counter-button" onClick = {() => addUnityToCart(product)}>+</span>
+        <span className="cart-counter-num">{product.quantity}</span>
+        <span className="cart-counter-button" onClick = {() => removeUnityFromCart(product)}>-</span>
+      </div>
     </div>
+    <span className="minus-product-button" onClick = {() => removeFromCart(product.item.id) }>X</span> 
+  </div>
+   
   )
 }
 

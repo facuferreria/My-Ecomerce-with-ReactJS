@@ -3,7 +3,7 @@ import { useState } from 'react'
 import '../Form/Form.scss'
 
 
-function Form({generateOrder, clearCart, calculateTotalPrice}) {
+function Form({ generateOrder, clearCart, calculateTotalPrice }) {
     const [values, setValues] = useState({
         name:"",
         surname:"",
@@ -31,7 +31,7 @@ function Form({generateOrder, clearCart, calculateTotalPrice}) {
             <input type="email" className="input" placeholder="E-mail"  name= "email" onChange={handleChange}/>
             <input type="number" className="input" placeholder="Numero"  name= "number" onChange={handleChange}/>
             <div className="buttons-container">
-                <button className="price-btn" onClick = {() => generateOrder(values) }>${calculateTotalPrice()} | FINALIZAR COMPRA</button>
+                <button className="price-btn" onClick = {() => generateOrder(values) }>${calculateTotalPrice()}  |  CHECKOUT</button>
                 <button className="cancel-btn" onClick = {() => clearCart() }>CANCELAR COMPRA</button>
             </div>
             
