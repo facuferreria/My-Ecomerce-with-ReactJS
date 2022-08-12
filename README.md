@@ -20,5 +20,5 @@ Las dependencias y librerias utilizadas en este proyecto son las siguientes:
 | react-router-dom | 18.1.0 | Enrutado del proyecto |
 | firebase | 9.9.1 | Backend del proyecto |
 | fontawesome | 6.1.1 | Iconos del proyecto |
-| sweetAlert2 | 11.4.24 | Alertas del proyecto |
+| sweetalert2 | 11.4.24 | Alertas del proyecto |
 | node-sass | 7.0.1 | Estilos del proyecto |
