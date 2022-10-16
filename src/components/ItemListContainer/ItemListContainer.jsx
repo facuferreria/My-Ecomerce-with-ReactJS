@@ -40,7 +40,7 @@ function ItemListContainer() {
   }, [categoryId])
   
   return (
-    <div>
+    <div className = "item-container">
       {loading ? <Spinner /> : <ItemList prods = {products}/>}
     </div>
   )
