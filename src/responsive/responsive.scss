@@ -1,0 +1,53 @@
+@import 'config';
+
+@include responsive-phone{
+    
+    .card-img-top{
+        margin: auto;
+        width: 112px;
+        height: 112px;
+    }
+
+    .itemContainer{
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1200px;
+        padding: 120px 20px;
+    }
+}
+
+@include responsive-tablet{
+
+    .card-img-top{
+        margin: auto;
+        width: 140px;
+        height: 140px;
+    }
+
+    .itemContainer{
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 1200px;
+        padding: 120px 20px;
+    }
+
+}
+
+
+@include responsive-laptop{
+    .card-img-top{
+        margin: auto;
+        width: 224px;
+        height: 224px;
+    }
+
+    .itemContainer{
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        max-width: 1200px;
+        padding: 120px 20px;
+    }
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import  './App.scss';
+import  './responsive/responsive.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/Navbar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'

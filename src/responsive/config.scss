@@ -1,0 +1,17 @@
+@mixin responsive-phone{
+    @media screen and (max-width: 599px) {
+      @content;
+    }
+  }
+  
+  @mixin responsive-tablet{
+    @media screen and (min-width: 600px) and (max-width: 1149px) {
+      @content;
+    }
+  }
+  
+  @mixin responsive-laptop{
+    @media screen and (min-width: 1150px) {
+      @content;
+    }
+  }

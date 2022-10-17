@@ -8,8 +8,8 @@ function NavBar() {
 
   return (
     <div className = "nav-container">
-       <Navbar collapseOnSelect expand="sm"  variant="light">
-            <NavLink to= "/" className="navbar-title">BROOK SHOP</NavLink>
+       <Navbar collapseOnSelect expand="md"  variant="light">
+            <NavLink to= '/' className="navbar-title">BROOK SHOP</NavLink>
             <Navbar.Toggle aria-controls="navbarScroll" data-bs-toggle="collapse" data-bs-target="#navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav>
