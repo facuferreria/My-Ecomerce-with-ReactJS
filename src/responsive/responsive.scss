@@ -9,11 +9,28 @@
     }
 
     .itemContainer{
-        margin: 0 auto;
+        margin: 100px auto;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         max-width: 1200px;
-        padding: 120px 20px;
+        column-gap: 5px;
+        row-gap: 20px;
+        .card{
+            margin: 30px auto;
+        }
+    }
+
+    .detail-card{
+        flex-flow: column;
+    }
+
+    .detail-img{
+        width: 300px;
+        height: 300px;
+    }
+
+    .cart-item{
+        flex-direction: column;
     }
 }
 
@@ -26,13 +43,17 @@
     }
 
     .itemContainer{
-        margin: 0 auto;
+        margin: 100px auto;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         max-width: 1200px;
-        padding: 120px 20px;
+        padding: 50px;
     }
 
+    .detail-img{
+        width: 400px;
+        height: 400px;
+    }
 }
 
 
@@ -49,5 +70,14 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
         max-width: 1200px;
         padding: 120px 20px;
+    }
+
+    .detail-card{
+        flex-flow: row !important;
+    }
+
+    .detail-img{
+        width: 600px;
+        height: 600px;
     }
 }

@@ -2,8 +2,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    flex-flow: row;
     justify-content: center;
+    margin: 120px 0;
 }
 
 .product-img, .product-info{
@@ -13,11 +13,6 @@
 .product-info{
     text-align: center;
     justify-content: center;
-}
-
-.img{
-    width: 600px;
-    height: 600px;
 }
 
 .detail-title, .detail-price{
