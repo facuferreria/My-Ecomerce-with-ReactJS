@@ -29,8 +29,27 @@
         height: 300px;
     }
 
+    .items-container:first-child{
+        margin: 50px 25px;
+    }
+
     .cart-item{
         flex-direction: column;
+        margin: 15px 25px;
+    }
+
+    .counter-container{
+        margin-top: 10px;
+    }
+    
+    .minus-product-button{
+        position: absolute;
+        bottom: 75%;
+        left: 90%;
+    }
+
+    .form-container{
+        padding: 0 15px;
     }
 }
 

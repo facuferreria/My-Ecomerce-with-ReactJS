@@ -7,14 +7,14 @@
 
 .cart-item{
     width: 90%;
-    margin: 10px 25px;
+    margin: 15px 25px;
     padding: 15px;
     display: flex;
     border-top: 1px solid #ebebeb;
     border-bottom: 1px solid #ebebeb;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .info-container{
@@ -30,7 +30,7 @@
     color: #212121;
     font-weight: 600;
     font-size: 12px;
-    text-align: left;
+    text-align: center;
     width: 250px;
     margin: 0;
 }
