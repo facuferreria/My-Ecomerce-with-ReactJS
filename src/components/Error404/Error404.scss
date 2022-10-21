@@ -1,11 +1,14 @@
+.error-container{
+    text-align: center;
+}
+
 .error-title{
     color: #212121;
     font-weight: 900;
     letter-spacing: .2em;
-    font-size: 5.6rem;
     padding-bottom: 40px;
     max-width: 960px;
-    margin: 0 auto;
+    margin: 100px auto 0 auto;
 }
 
 .error-text, .error-button-text{

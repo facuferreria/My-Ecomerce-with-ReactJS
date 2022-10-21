@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function EmptyCart() {
   return (
-    <div>
+    <div className='error-container'>
         <h1 className="error-title">CARRITO VACIO</h1>
         <p className="error-text">No hay productos en tu carrito</p>
         <Link to= '/' className="error-link" >

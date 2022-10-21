@@ -4,7 +4,7 @@ import '../Error404/Error404.scss'
 
 function Error404() {
   return (
-    <div>
+    <div className='error-container'>
         <h1 className="error-title">ERROR 404</h1>
         <p className="error-text">Lo sentimos pero lo que sea que estes buscando no se encuentra aqui. Por favor vuelve a nuestra pagina principal clickeando el boton de abajo</p>
         <Link to= '/' className="error-link" >
