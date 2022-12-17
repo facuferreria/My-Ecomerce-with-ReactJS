@@ -22,3 +22,4 @@ Las dependencias y librerias utilizadas en este proyecto son las siguientes:
 | fontawesome | 6.1.1 | Iconos del proyecto |
 | sweetalert2 | 11.4.24 | Alertas del proyecto |
 | node-sass | 7.0.1 | Estilos del proyecto |
+| react-bootstrap | 2.5.0 | Componentes responsive |
